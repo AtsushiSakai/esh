@@ -20,3 +20,9 @@ function abort {
 function error {
    echo "$@" 1>&2
 }
+
+function githubclone {
+    USER=AtsushiSakai
+    echo "githubclone"
+    curl -s "https://api.github.com/users/$USER/repos?per_page=100"| grep html | grep /$USER/ | awk '{print $2}'
+}
