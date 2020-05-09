@@ -20,3 +20,11 @@ function abort {
 function error {
    echo "$@" 1>&2
 }
+
+
+#
+# usage:
+#    debug foo
+#    > foo = "1"
+#
+function debug() { echo "$1 = \"$(eval echo \$$1)\"" >&2; }
